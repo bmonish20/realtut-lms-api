@@ -42,7 +42,7 @@ exports.sendEmailVerification = async (verificationObj) => {
         to: verificationObj.userEmail,
       },
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         verificationCode: verificationObj.code,
         year: moment().year(),
       },
@@ -81,7 +81,7 @@ exports.sendPasswordReset = async (passwordResetObject) => {
         },
       ],
       locals: {
-        productName: "RealTut",
+        productName: "SAN",
         // passwordResetUrl should be a URL to your app that displays a view where they
         // can enter a new password along with passing the resetToken in the params
         passwordResetUrl: `${resetPasswordUrl}?email=${passwordResetObject.userEmail}&resetToken=${passwordResetObject.resetToken}`,
@@ -114,7 +114,7 @@ exports.sendPasswordSettingLink = async (passwordResetObject) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         // passwordResetUrl should be a URL to your app that displays a view where they
         // can enter a new password along with passing the resetToken in the params
         passwordResetUrl: `${resetPasswordUrl}?email=${passwordResetObject.userEmail}&resetToken=${passwordResetObject.resetToken}`,
@@ -141,7 +141,7 @@ exports.sendPasswordChangeEmail = async (user) => {
         to: user.email,
       },
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         name: user.name,
       },
     })
@@ -172,7 +172,7 @@ exports.sendInviteToUser = async (inviteDetails) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         name: inviteDetails.name,
         signUpLink: "https://realtut.com/auth/register",
       },
@@ -204,7 +204,7 @@ exports.sendEventRegistered = async (event, user) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         name: user.name,
         title: event.title,
         webinarLink: encodeURI(
@@ -243,7 +243,7 @@ exports.sendCourseRegistered = async (course, user) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         name: user.name,
         title: course.title,
         dateTimeFormatted: moment(course.startDate).format("LLLL"),
@@ -278,7 +278,7 @@ exports.sendCourseReminder = async (course, participantsList) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         title: course.title,
         dateTimeFormatted: moment(course.startDate).format("LLLL"),
         courseLink: `https://realtut.com/course/${course._id}`,
@@ -313,7 +313,7 @@ exports.sendEventReminder = async (event, participantsList) => {
         },
       ],
       locals: {
-        productName: "RealTuT",
+        productName: "SAN",
         title: event.title,
         webinarLink: encodeURI(
           `https://realtut.com/watch/${event.id}?link=${event.webinarLink}&startTime=${event.dateTime}&isHost=0`
