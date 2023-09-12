@@ -27,13 +27,13 @@ exports.listByDate = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const meeting = await ZoomService.createMeeting({
-      ...req.body,
-    });
+    // const meeting = await ZoomService.createMeeting({
+    //   ...req.body,
+    // });
     const event = new Event({
       ...req.body,
       hostedBy: req.user._id,
-      webinarLink: meeting.id,
+      webinarLink: "132",
     });
     const savedEvent = await event.save();
     createActivity(req.user._id, "event", `Created ${savedEvent.title}`);
@@ -62,7 +62,7 @@ exports.fetch = async (req, res, next) => {
 exports.updateOne = async (req, res, next) => {
   try {
     const { eventId: id } = req.params;
-    await ZoomService.updateMeeting(req.body.webinarLink, req.body);
+    // await ZoomService.updateMeeting(req.body.webinarLink, req.body);
     await Event.updateEvent({ id }, req.body);
     createActivity(req.user._id, "event", `Updated ${req.body.title}`);
     res.status(httpStatus.NO_CONTENT);

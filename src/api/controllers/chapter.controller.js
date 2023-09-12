@@ -33,13 +33,13 @@ exports.my = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const meeting = await ZoomService.createMeeting({
-      ...req.body
-    });
+    // const meeting = await ZoomService.createMeeting({
+    //   ...req.body
+    // });
     const chapter = new Chapter({
       ...req.body,
       createdBy: req.user._id,
-      link: meeting.id
+      link: "123"
     });
     const savedChapter = await chapter.save();
     res.status(httpStatus.CREATED);
@@ -63,7 +63,7 @@ exports.fetch = async (req, res, next) => {
 exports.updateOne = async (req, res, next) => {
   try {
     const { chapterId } = req.params;
-    await ZoomService.updateMeeting(req.body.link, req.body);
+    // await ZoomService.updateMeeting(req.body.link, req.body);
     await Chapter.updateChapter(chapterId, req.body);
     res.status(httpStatus.NO_CONTENT);
     res.send();
@@ -76,8 +76,8 @@ exports.updateOne = async (req, res, next) => {
 exports.removeOne = async (req, res, next) => {
   try {
     const { chapterId: _id } = req.params;
-    const chapter = await Chapter.fetch(_id);
-    await ZoomService.deleteMeeting(chapter.link);
+    // const chapter = await Chapter.fetch(_id);
+    // await ZoomService.deleteMeeting(chapter.link);
     await Chapter.deleteOne({ _id });
     res.status(httpStatus.NO_CONTENT);
     res.send();
