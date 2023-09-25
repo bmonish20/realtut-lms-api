@@ -359,9 +359,9 @@ userSchema.statics = {
       options = {
         ...options,
         $or: [
-          { name: { $regex: searchPattern, $options: "$i" } },
-          { email: { $regex: searchPattern, $options: "$i" } },
-          { phoneNumber: { $regex: searchPattern, $options: "$i" } },
+          { name: { $regex: searchPattern, $options: "i" } },
+          { email: { $regex: searchPattern, $options: "i" } },
+          { phoneNumber: { $regex: searchPattern, $options: "i" } },
         ],
       };
     }
