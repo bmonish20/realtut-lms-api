@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const _omitBy = require("lodash/omitBy");
 const { isNullorUndefined } = require("../utils/helpers");
 
-const allFields = "title type level link dateTime tags createdAt updatedAt";
+const allFields = "title type level link dateTime tags videoLink createdAt updatedAt";
 
 const chapterSchema = new mongoose.Schema(
   {
@@ -34,6 +34,10 @@ const chapterSchema = new mongoose.Schema(
     tags: {
       type: [String],
       default: [],
+    },
+    videoLink: {
+      type: String,
+      default: "",
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
